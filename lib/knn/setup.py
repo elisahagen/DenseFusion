@@ -17,7 +17,7 @@ def get_extensions():
     this_dir = os.path.dirname(os.path.abspath(__file__))
     extensions_dir = os.path.join(this_dir, "src")
 
-    main_file = glob.glob(os.path.join(extensions_dir, "*.cpp"))
+    main_file = [os.path.join(extensions_dir, "bindings.cpp")]
     source_cpu = glob.glob(os.path.join(extensions_dir, "cpu", "*.cpp"))
     source_cuda = glob.glob(os.path.join(extensions_dir, "cuda", "*.cu"))
 
@@ -44,7 +44,7 @@ def get_extensions():
 
     ext_modules = [
         extension(
-            "knn_pytorch.knn_pytorch",
+            "knn_pytorch.knn_cuda_ext",
             sources,
             include_dirs=include_dirs,
             define_macros=define_macros,

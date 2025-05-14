@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Train DenseFusion Linemod",
+      "type": "python",
+      "request": "launch",
+      "python": "/usr/bin/python3",
+      "program": "${workspaceFolder}/tools/train.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--dataset", "linemod",
+        "--dataset_root", "./datasets/linemod/Linemod_preprocessed"
+      ],
+      "env": {
+        "PYTHONUNBUFFERED": "True",
+        "CUDA_VISIBLE_DEVICES": "0",
+        "CUDA_LAUNCH_BLOCKING": "1"
+      }
+    }
+  ]
+}
